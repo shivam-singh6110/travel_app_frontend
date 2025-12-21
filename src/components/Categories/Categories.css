@@ -1,0 +1,53 @@
+.categories{
+    padding: 6rem 2rem 1rem 2rem;
+     display: flex;
+  align-items: center;
+    color: var(--text-color-primary);
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    background-color: var(--background-color);
+}
+
+.gap-large{
+    gap: 2rem;
+}
+
+.nav-btn {
+  flex: 0 0 48px;        /* 👈 SAME WIDTH BOTH SIDES */
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* MIDDLE AREA */
+.categories-list {
+  flex: 1;               /* 👈 TAKES REMAINING SPACE */
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  overflow: hidden;
+}
+
+/* CATEGORY TEXT */
+.category-chip {
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* OPTIONAL HOVER */
+.nav-btn:hover {
+  background-color: #f2f2f2;
+}
+ 
+.border-bottom{
+  border-bottom: 1px solid var(--text-color-primary);
+}
