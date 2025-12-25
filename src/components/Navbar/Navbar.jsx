@@ -1,6 +1,24 @@
 import "./Navbar.css";
+import { useDate } from "../../context";
 
 export const Navbar = () => {
+  const { destination, dateDispatch, checkInDate, checkOutDate, guests } =
+    useDate();
+
+  const handleSearchClick = () => {
+    dateDispatch({
+      type: "OPEN_SEARCH_MODEL",
+    });
+  };
+
+  const formatDate = (date) => {
+    if (!date) return "";
+    return new Date(date).toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "short",
+    });
+  };
+
   return (
     <header className="heading d-flex grow-shrink-basis align-center">
       <h1 className="heading-1">
@@ -8,14 +26,30 @@ export const Navbar = () => {
           TravelO
         </a>
       </h1>
-      <div className="form-container d-flex align-center cursor-pointer">
-        <span className="form-option">Anywhere</span>
+
+      <div
+        className="form-container d-flex align-center cursor-pointer shadow"
+        onClick={handleSearchClick}
+      >
+        <span className="form-option">{destination || "Anywhere"}</span>
+
         <span className="border-right-1px"></span>
-        <span className="form-option">Any Week</span>
+
+        <span className="form-option">
+          {checkInDate && checkOutDate
+            ? `${formatDate(checkInDate)} - ${formatDate(checkOutDate)}`
+            : "Any Week"}
+        </span>
+
         <span className="border-right-1px"></span>
-        <span className="form-option">Add Guests</span>
+
+        <span className="form-option">
+          {guests > 0 ? `${guests} guests` : "Add Guests"}
+        </span>
+
         <span className="search material-symbols-outlined">search</span>
       </div>
+
       <nav className="d-flex align-center gap-large">
         <div className="nav d-flex align-center cursor-pointer">
           <span className="material-symbols-outlined profile-option menu">

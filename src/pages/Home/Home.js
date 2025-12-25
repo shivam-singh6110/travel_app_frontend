@@ -1,12 +1,13 @@
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
-import { Navbar, HotelCard, Categories } from "../../components";
-import { useCategory } from "../../context";
+import { Navbar, HotelCard, Categories, SearchStayWithDate } from "../../components";
+import { useCategory, useDate } from "../../context";
 import "./Home.css";
 
 export const Home = () => {
   const [hotels, setHotels] = useState([]);
   const { hotelCategory } = useCategory();
+  const { isSearchModelOpen } = useDate();
 
   useEffect(() => {
     (async () => {
@@ -17,7 +18,6 @@ export const Home = () => {
     })();
   }, []);
 
-  //  FILTER LOGIC (MOST IMPORTANT PART)
   const filteredHotels =
     hotelCategory === "All"
       ? hotels
@@ -28,7 +28,7 @@ export const Home = () => {
         );
 
   return (
-    <Fragment>
+    <div className="relative">
       <Navbar />
       <Categories />
 
@@ -41,6 +41,8 @@ export const Home = () => {
           ))
         )}
       </main>
-    </Fragment>
+
+      {isSearchModelOpen && <SearchStayWithDate />}
+    </div>
   );
 };

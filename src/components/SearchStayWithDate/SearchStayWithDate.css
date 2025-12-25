@@ -1,0 +1,113 @@
+.destination-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay);
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+}
+
+
+.destination-options {
+    position: absolute;
+
+    top: 5rem;              /* adjust according to navbar height */
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: var(--background-color);
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+
+.search-dest{
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    border: none;
+    background-color: var(--background-color);
+}
+
+.search-dest:focus{
+    outline: none;
+}
+
+.search-container{
+    font-size: 1rem;
+    padding: 1.25rem .5rem;
+    border: none;
+    background-color: var(--primary-color);
+    height: 100%;
+    color: #fafafa;
+}
+
+.label{
+    display: block;
+    color: var(--text-color-primary);
+    padding: 8px 0 0 8px;
+    font-size: 0.875rem;
+}
+
+.search{
+    background-color: var(--primary-color);
+}
+
+
+/* Extra     */ 
+
+/* Wrapper should take full width */
+.date-picker-wrapper {
+  width: 100%;
+}
+
+/* DatePicker root */
+.react-date-picker {
+  width: 100%;
+}
+
+/* Remove default border box */
+.react-date-picker__wrapper {
+  border: none;
+  width: 100%;
+}
+
+/* Input group must stretch */
+.react-date-picker__inputGroup {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+}
+
+/* Each date segment */
+.react-date-picker__inputGroup__input {
+  min-width: 1.5em;
+  text-align: center;
+}
+
+/* Fix overflow */
+.react-date-picker__inputGroup__divider {
+  padding: 0 2px;
+}
+
+.search-result-container{
+  background-color: var(--background-color);
+  color: var(--text-color-primary);
+  position: absolute; 
+  width: 25rem;
+  max-height: 100%;
+  overflow-y: auto;
+  border-radius: 4px;
+    top: 12rem;              
+    left: 27%;
+}
+
+.p{
+  padding: 8px;
+  color: var(--text-color-primary);
+  opacity: 0.7;
+}
+

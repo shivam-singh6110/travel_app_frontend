@@ -1,0 +1,99 @@
+.hotel-details-container {
+  /* max-width: 900px; */
+  /* margin: 2rem auto; */
+  /* padding: 1.5rem; */
+  /* background-color: #ffffff; */
+  /* border-radius: 12px; */
+  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); */
+}
+
+/* COMMON BLOCK STYLE */
+.host-details {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* REMOVE BORDER FOR LAST SECTION */
+.amenties-container {
+  border-bottom: none;
+}
+
+/* HEADINGS */
+.host-details > p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* SUB TEXT */
+.span {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* PARAGRAPHS */
+.p {
+  font-size: 1rem;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+/* ICON + TEXT ROW */
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.direction-column {
+  flex-direction: column;
+}
+
+.gap {
+  gap: 0.6rem;
+}
+
+.gap-xxl {
+  gap: 3rem;
+}
+
+.gutter-bottom-small {
+  margin-bottom: 1rem;
+}
+
+/* ICON STYLE */
+/* .apps {
+  color: #ef4444;
+  font-size: 1.4rem;
+} */
+
+/* KEY FEATURES */
+.key-features .p {
+  margin-bottom: 0.3rem;
+}
+
+/* AMENITIES */
+.amenities {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* AMENITIES ITEMS */
+.amenties-container .span {
+  padding: 0.4rem 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hotel-details-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .gap-xxl {
+    gap: 1.5rem;
+  }
+}
