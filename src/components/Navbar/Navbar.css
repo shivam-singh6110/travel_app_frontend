@@ -112,3 +112,12 @@
   height: 40px;
   border-radius: 1px;
 }
+
+/* Extra styles */
+
+.username {
+  margin-right: 8px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: black;
+}

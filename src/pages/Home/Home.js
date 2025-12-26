@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
-import { Navbar, HotelCard, Categories, SearchStayWithDate } from "../../components";
-import { useCategory, useDate } from "../../context";
+import { Navbar, HotelCard, Categories, SearchStayWithDate,AuthModel } from "../../components";
+import { useCategory, useDate,useAuth } from "../../context";
 import "./Home.css";
 
 export const Home = () => {
@@ -9,6 +9,8 @@ export const Home = () => {
   const { hotelCategory } = useCategory();
   const { isSearchModelOpen } = useDate();
 
+
+  const {isAuthModelOpen} =useAuth();
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(
@@ -43,6 +45,7 @@ export const Home = () => {
       </main>
 
       {isSearchModelOpen && <SearchStayWithDate />}
+      {isAuthModelOpen && <AuthModel/>}
     </div>
   );
 };
