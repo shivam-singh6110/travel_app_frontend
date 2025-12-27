@@ -51,3 +51,7 @@
 .favorite{
     color: #71717a;
 }
+
+.selected{
+    color: red;
+}

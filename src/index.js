@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
-import { CategoryProvider,DateProvider,AuthProvider } from "./context";
+import { CategoryProvider,DateProvider,AuthProvider,WishlistProvider } from "./context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -11,11 +11,12 @@ root.render(
       <CategoryProvider>
         <DateProvider>
           <AuthProvider>
-           <App />
+            <WishlistProvider>
+              <App />
+            </WishlistProvider>
           </AuthProvider>
         </DateProvider>
-     
-    </CategoryProvider>
+      </CategoryProvider>
     </Router>
     
   </React.StrictMode>

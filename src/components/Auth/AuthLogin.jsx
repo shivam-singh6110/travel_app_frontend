@@ -50,7 +50,9 @@ export const AuthLogin = () => {
         type:"SET_USER_NAME",
         payload:username,
        });
-       
+      //  authDispatch({
+      //   type:"CLEAR_USER_DATA",
+      // });
       }
     authDispatch({
       type:"SHOW_AUTH_MODEL",
