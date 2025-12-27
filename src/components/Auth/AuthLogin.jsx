@@ -1,64 +1,85 @@
 import "./Auth.css";
- 
-import { validateNumber,validatePassword } from "../../utils";
+
+import { validateNumber, validatePassword } from "../../utils";
 import { loginHandler } from "../../services";
 import { useAuth } from "../../context";
 
-
-
-let isNumberValid,isPasswordValid;
+let isNumberValid, isPasswordValid;
 export const AuthLogin = () => {
+  const { authDispatch, number, password } = useAuth();
 
-  const {authDispatch,number,password} = useAuth();
-  
+  const handleNumberChange = (event) => {
+    isNumberValid = validateNumber(event.target.value);
+    if (isNumberValid) {
+      console.log("Valid Input");
+      authDispatch({
+        type: "NUMBER",
+        payload: event.target.value,
+      });
+    } else {
+      console.log("Invalid Number");
+    }
+  };
 
- const handleNumberChange = (event)=>{
-      isNumberValid = validateNumber(event.target.value);
-     if(isNumberValid){ 
-       console.log("Valid Input");
-        authDispatch({
-       type:"NUMBER",
-       payload:event.target.value
-     })
-     }else{
-       console.log("Invalid Number");
-     }
-   }
+  const handlePasswordChange = (event) => {
+    isPasswordValid = validatePassword(event.target.value);
+    if (isPasswordValid) {
+      console.log("Valid Input");
+      authDispatch({
+        type: "PASSWORD",
+        payload: event.target.value,
+      });
+    } else {
+      console.log("Invalid Password");
+    }
+  };
 
-   const handlePasswordChange = (event)=>{
-        isPasswordValid = validatePassword(event.target.value);
-       if(isPasswordValid){
-         console.log("Valid Input");
-           authDispatch({
-         type:"PASSWORD",
-         payload:event.target.value
-       })
-       }else{
-         console.log("Invalid Password");
-       }
-     } 
-
-     const handleFormSubmit = async (e)=>{
-      e.preventDefault();
-      if(isNumberValid && isPasswordValid){
-       const {accessToken,username}= await loginHandler(number,password);
-       authDispatch({
-        type:"SET_ACCESS_TOKEN",
-        payload:accessToken,
-       });
-       authDispatch({
-        type:"SET_USER_NAME",
-        payload:username,
-       });
-      //  authDispatch({
-      //   type:"CLEAR_USER_DATA",
-      // });
-      }
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (isNumberValid && isPasswordValid) {
+      const { accessToken, username } = await loginHandler(number, password);
+      authDispatch({
+        type: "SET_ACCESS_TOKEN",
+        payload: accessToken,
+      });
+      authDispatch({
+        type: "SET_USER_NAME",
+        payload: username,
+      });
+      
+    }
     authDispatch({
-      type:"SHOW_AUTH_MODEL",
+      type: "SHOW_AUTH_MODEL",
     });
-     }
+  };
+  const handleTestCredentialClick = async () => {
+  try {
+    const { accessToken, username } = await loginHandler(
+      9771351791,
+      "Shivam@6110"
+    );
 
+    authDispatch({
+      type: "SET_ACCESS_TOKEN",
+      payload: accessToken,
+    });
+
+    authDispatch({
+      type: "SET_USER_NAME",
+      payload: username,
+    });
+
+     
+    authDispatch({
+      type: "SHOW_AUTH_MODEL",
+    });
+
+  } catch (error) {
+    console.error("Test login failed", error);
+    alert("Invalid test credentials");
+  }
+};
+   
   return (
     <div className="auth-container">
       <form onSubmit={handleFormSubmit}>
@@ -67,7 +88,7 @@ export const AuthLogin = () => {
             Mobile Numbers <span className="asterisk">*</span>
           </label>
           <input
-          defaultValue={number}
+            defaultValue={number}
             type="number"
             className="auth-input"
             maxLength="10"
@@ -81,7 +102,7 @@ export const AuthLogin = () => {
             Password <span className="asterisk">*</span>{" "}
           </label>
           <input
-          defaultValue={password}
+            defaultValue={password}
             className="auth-input"
             placeholder="Enter Password"
             type="password"
@@ -94,7 +115,10 @@ export const AuthLogin = () => {
         </div>
       </form>
       <div className="cta">
-        <button className="button btn-outline-primary cursor-pointer">
+        <button
+          className="button btn-outline-primary cursor-pointer"
+          onClick={handleTestCredentialClick}
+        >
           Login with Test Credentials
         </button>
       </div>
