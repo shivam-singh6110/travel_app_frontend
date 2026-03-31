@@ -13,7 +13,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ##  Live Demo
 👉 Add your deployed app link here:  
-[Live App](https://email-spam-classifier-43g5.onrender.com)
+[Live App](https://travelo-omega-taupe.vercel.app/)
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
